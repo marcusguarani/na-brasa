@@ -149,5 +149,9 @@ Este projeto está disponível para uso pessoal e educacional. Sinta-se à vonta
 
 ## 👨‍💻 Autor
 
-Feito com 🔥 por [Marcus Guarani](https://marcusguarani.com.br)
+Feito com 🔥 por **Marcus Guarani**
+
+[![GitHub](https://img.shields.io/badge/GitHub-marcusguarani-181717?style=flat&logo=github)](https://github.com/marcusguarani)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-marcusguarani-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/marcusguarani)
+[![Portfólio](https://img.shields.io/badge/Portf%C3%B3lio-marcusguarani.com.br-000000?style=flat&logo=googlechrome&logoColor=white)](https://marcusguarani.com.br)
 
