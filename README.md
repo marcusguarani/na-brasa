@@ -147,8 +147,7 @@ Este projeto está disponível para uso pessoal e educacional. Sinta-se à vonta
 
 ---
 
-<div align="center">
+## 👨‍💻 Autor
 
 Feito com 🔥 por [Marcus Guarani](https://marcusguarani.com.br)
 
-</div>
