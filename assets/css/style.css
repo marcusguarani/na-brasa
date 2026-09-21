@@ -1,0 +1,310 @@
+/* ==========================================================================
+   NaBrasa — Design System
+   Tema: churrasco + festa. Brasa, fumaça, luzes de quintal, madeira e couro.
+   ========================================================================== */
+
+:root {
+    /* Base */
+    --ink: #2b2015;
+    --ink-soft: #4a3a29;
+    --muted: #8a7a68;
+    --cream: #fbf1e2;
+    --surface: #fffdf9;
+    --surface-2: #fff8ee;
+    --line: #ecdec6;
+
+    /* Fogo / marca */
+    --primary: #e8491f;
+    --primary-dark: #ad2e10;
+    --ember: #ff7a3d;
+    --flame-light: #ffb057;
+
+    /* Festa */
+    --yellow: #ffb703;
+    --yellow-dark: #c98600;
+    --green: #1f9d6f;
+    --green-dark: #157454;
+    --party-pink: #ff4d8d;
+    --party-blue: #2ec4dd;
+    --party-purple: #8a5cf6;
+
+    /* Superfícies escuras (nav/footer — "noite de churrasco") */
+    --char-900: #1c140d;
+    --char-800: #251b12;
+    --char-700: #33261a;
+
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --shadow-soft: 0 10px 30px -8px rgba(90, 45, 15, 0.18);
+    --shadow-pop: 0 16px 40px -12px rgba(180, 60, 20, 0.35);
+    --font-display: "Baloo 2", "DM Sans", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; height: 100%; }
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 6% 4%, #ffedd2 0%, transparent 40%),
+        radial-gradient(circle at 96% 0%, #ffe1c9 0%, transparent 38%),
+        radial-gradient(#e9d3ac 1px, transparent 1.4px) 0 0 / 26px 26px,
+        var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* App shell — navbar fixed height, main grows, footer always stays at the bottom */
+.app-navbar { flex: 0 0 auto; }
+main.container { flex: 1 0 auto; display: flex; flex-direction: column; }
+.app-footer { flex: 0 0 auto; }
+
+h1, h2, h3, h4, .navbar-brand, .section-title, .stat-value {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+}
+
+::selection { background: var(--primary); color: #fff; }
+
+/* Custom scrollbar — tema brasa */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--ember), var(--primary)); border-radius: 999px; border: 2px solid var(--cream); }
+
+/* ==========================================================================
+   Navbar — noite de churrasco
+   ========================================================================== */
+.app-navbar {
+    background: #17110d;
+    min-height: 78px;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+    border-bottom: 1px solid #4a2a1b;
+}
+
+.navbar-brand { color: #fff8ef; letter-spacing: -.03em; font-size: 1.35rem; }
+.navbar-brand:hover { color: #fff8ef; }
+.brand { color: var(--yellow); }
+.brand-logo {
+    width: 48px; height: 48px; object-fit: cover; border-radius: 50%;
+    box-shadow: 0 0 0 3px #ffffff14, 0 6px 16px -4px #e8491f80;
+    transition: transform .25s ease;
+}
+.brand-mark {
+    background: radial-gradient(circle at 35% 30%, var(--ember), var(--primary) 70%);
+    border-radius: 12px; padding: 6px 10px; font-size: 1.1rem;
+    box-shadow: 0 0 0 3px #ffffff14, 0 6px 16px -4px #e8491f80;
+    display: inline-flex; transition: transform .25s ease;
+}
+.navbar-brand:hover .brand-logo { transform: rotate(-8deg) scale(1.08); }
+.navbar .nav-link { color: #d9cfc2; font-weight: 600; border-radius: 999px; padding: .5rem .9rem !important; transition: all .2s ease; }
+.navbar .nav-link:hover { color: #fff; background: #ffffff0f; }
+.navbar .nav-link.active { color: #fff8ef; background: #3b2418; box-shadow: inset 0 0 0 1px #8f4526; }
+.app-navbar .btn-primary { background: var(--primary); box-shadow: 0 6px 16px -6px #e8491f99; }
+.app-navbar .btn-primary:hover { background: var(--ember); }
+.navbar-toggler { border-color: #ffffff33; }
+.navbar-toggler:focus { box-shadow: 0 0 0 .2rem #e8491f55; }
+
+/* ==========================================================================
+   Botões
+   ========================================================================== */
+.btn { border-radius: 999px; font-weight: 700; padding: .55rem 1.2rem; transition: transform .15s ease, box-shadow .2s ease, filter .2s ease; }
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn-primary, .btn-danger {
+    background: linear-gradient(135deg, var(--ember), var(--primary));
+    border: none; color: #fff;
+    box-shadow: 0 8px 20px -6px #d94a2b70;
+}
+.btn-primary:hover, .btn-danger:hover { filter: brightness(1.07); box-shadow: 0 12px 26px -6px #d94a2b90; transform: translateY(-1px); }
+.btn-warning { background: linear-gradient(135deg, #ffcb4d, var(--yellow)); border-color: var(--yellow); color: #402c00; font-weight: 700; box-shadow: 0 8px 18px -6px #ffb70370; }
+.btn-warning:hover { filter: brightness(1.05); transform: translateY(-1px); color: #402c00; }
+.btn-success { background: linear-gradient(135deg, #29b884, var(--green)); border: none; box-shadow: 0 8px 18px -6px #1f9d6f60; }
+.btn-outline-secondary, .btn-outline-danger { border-width: 2px; font-weight: 700; }
+.btn-outline-danger { color: var(--primary); border-color: var(--primary); }
+.btn-outline-danger:hover { background: var(--primary); border-color: var(--primary); transform: translateY(-1px); }
+.btn-outline-secondary { color: var(--ink-soft); border-color: var(--line); }
+.btn-outline-secondary:hover { background: var(--ink-soft); border-color: var(--ink-soft); transform: translateY(-1px); }
+.btn-sm { padding: .35rem .85rem; font-size: .82rem; }
+
+/* ==========================================================================
+   Hero — churrasqueira acesa
+   ========================================================================== */
+.hero {
+    position: relative;
+    background:
+        repeating-linear-gradient(115deg, #ffffff0d 0 2px, transparent 2px 26px),
+        radial-gradient(circle at 92% 8%, #ffc46655, transparent 30%),
+        radial-gradient(circle at 8% 100%, #ffffff14, transparent 35%),
+        linear-gradient(135deg, #ad2e10, #e8491f 55%, #ff8a4a);
+    box-shadow: var(--shadow-pop);
+    overflow: hidden;
+    isolation: isolate;
+}
+.hero::before {
+    content: "";
+    position: absolute; right: -10px; bottom: -22px;
+    width: 240px; height: 240px; border: 2px solid #ffffff2b;
+    border-radius: 50%; opacity: .5; transform: rotate(18deg);
+    box-shadow: 0 0 0 18px #ffffff0b, 0 0 0 36px #ffffff08;
+    pointer-events: none;
+}
+.hero .eyebrow { color: #ffe1a8; font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.hero h1 { text-shadow: 0 2px 14px #0000002a; }
+.hero .lead { color: #ffe9d8; }
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow .25s ease, transform .25s ease;
+}
+.card:hover { box-shadow: 0 16px 36px -10px rgba(90, 45, 15, 0.24); }
+
+.stat-card { position: relative; overflow: hidden; min-height: 128px; border-top: 3px solid transparent; }
+.stat-icon { position: absolute; right: 16px; top: 12px; font-size: 3.6rem; opacity: .12; transform: rotate(-6deg); }
+.stat-card.stat-fire { border-top-color: var(--primary); }
+.stat-card.stat-users { border-top-color: var(--party-blue); }
+.stat-card.stat-calendar { border-top-color: var(--yellow); }
+.stat-label { color: var(--muted); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.stat-value { font-size: 2.05rem; font-weight: 800; margin-top: 8px; color: var(--ink); }
+
+.section-title { font-size: 1.12rem; font-weight: 800; }
+
+/* ==========================================================================
+   Tabelas
+   ========================================================================== */
+.table { --bs-table-bg: transparent; }
+.table thead th {
+    color: var(--muted); font-size: .74rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+    border-bottom: 2px solid var(--line); padding-bottom: .85rem;
+}
+.table tbody td { border-bottom-color: var(--line); padding: 1rem .65rem; vertical-align: middle; }
+.table tbody tr { transition: background .15s ease; }
+.table tbody tr:hover { background: #fff2e2; }
+.table tbody tr:last-child td { border-bottom: 0; }
+.event-name { font-weight: 700; }
+.event-date { color: var(--muted); font-size: .85rem; }
+
+/* ==========================================================================
+   Badges — como etiquetas de churrasco
+   ========================================================================== */
+.badge { border-radius: 999px; padding: .5em .8em; font-weight: 700; letter-spacing: .01em; }
+.text-bg-warning { background: linear-gradient(135deg, #ffcb4d, var(--yellow)) !important; color: #402c00 !important; }
+.text-bg-success { background: linear-gradient(135deg, #29b884, var(--green)) !important; }
+.text-bg-danger { background: linear-gradient(135deg, var(--ember), var(--primary)) !important; }
+
+/* ==========================================================================
+   Estado vazio
+   ========================================================================== */
+.empty-state {
+    border: 2px dashed #dcc9a8; border-radius: var(--radius-md);
+    padding: 2.5rem 1.5rem; text-align: center; color: var(--muted);
+    background: repeating-linear-gradient(135deg, #fff8ee 0 12px, #fff3e2 12px 24px);
+}
+.empty-state-icon { animation: bob 2.4s ease-in-out infinite; display: inline-block; color: var(--primary); }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-6px) rotate(-4deg); } }
+
+/* ==========================================================================
+   Formulários
+   ========================================================================== */
+.form-control, .form-select {
+    border: 1.5px solid #e6dac4; border-radius: var(--radius-sm); padding: .68rem .9rem;
+    background-color: var(--surface); transition: border-color .2s ease, box-shadow .2s ease;
+}
+.form-control:focus, .form-select:focus { border-color: var(--ember); box-shadow: 0 0 0 .22rem #e8491f22; }
+.form-label { font-weight: 700; font-size: .88rem; color: var(--ink-soft); margin-bottom: .35rem; }
+.form-control::placeholder { color: #b3a48f; }
+
+/* Alerts */
+.alert { border: none; border-radius: var(--radius-sm); font-weight: 600; }
+.alert-danger { background: #fde2d8; color: #9a2c10; }
+.alert-success { background: #d9f2e6; color: #0e6b4a; }
+.alert-info { background: #fff2cf; color: #7a5600; }
+
+/* ==========================================================================
+   Login / cadastro cards (auth)
+   ========================================================================== */
+.auth-wrap { margin-top: auto; margin-bottom: auto; padding-block: 2rem; }
+.auth-card {
+    border-top: 4px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+.auth-card::before {
+    content: "";
+    position: absolute; top: -60px; right: -60px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle, #ffb05733, transparent 70%);
+    pointer-events: none;
+}
+.auth-badge {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--ember), var(--primary) 75%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.5rem;
+    box-shadow: 0 10px 24px -8px #d94a2b80, 0 0 0 4px #ffffff, 0 0 0 5px var(--line);
+}
+
+/* Input groups with icons (auth forms and beyond) */
+.input-group .input-group-text {
+    background: var(--surface);
+    border: 1.5px solid #e6dac4;
+    border-right: 0;
+    color: var(--muted);
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+.input-group .form-control {
+    border-left: 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.input-group .form-control:not(:last-child) { border-radius: 0; }
+.input-group:focus-within .input-group-text { border-color: var(--ember); }
+.toggle-password {
+    border: 1.5px solid #e6dac4;
+    border-left: 0;
+    background: var(--surface);
+    color: var(--muted);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding-inline: .9rem;
+}
+.toggle-password:hover { color: var(--ink); background: var(--surface-2); }
+.toggle-password:focus { box-shadow: none; border-color: var(--ember); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.app-footer {
+    color: #b8a893;
+    background: linear-gradient(180deg, var(--char-800), var(--char-900));
+    position: relative;
+    border-top: 1px solid #00000055;
+}
+.app-footer .brand { font-weight: 800; }
+.app-footer .footer-tagline { font-size: .82rem; color: #8a7a68; }
+.footer-icons { display: flex; justify-content: center; gap: .8rem; color: var(--ember); }
+
+/* ==========================================================================
+   Responsivo
+   ========================================================================== */
+@media (max-width: 767px) {
+    .hero { padding: 1.5rem !important; }
+    .hero h1 { font-size: 1.65rem; }
+    .hero::before { width: 160px; height: 160px; }
+    .table { min-width: 680px; }
+}
